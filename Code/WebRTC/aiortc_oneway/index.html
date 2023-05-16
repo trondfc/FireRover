@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/53a25edb7a.js" crossorigin="anonymous"></script>
+        <title>FireRover mk1</title>
+    </head>
+
+
+
+<body>
+    <header class="main-header">
+        <a class="rover-logo rover-logo-color"> ROVER </a>
+        <a class="sar-logo"> sar </a>
+        <a> mk 1 display</a>
+        
+    </header>
+    
+    <div id="system-popup"class= "popup">
+        <button id="closePopup">&times;</button> 
+        <h2>Rover setup</h2>
+        <ul>
+            <h4>Connection</h4>
+            <li>
+                <a id="pagekiteSetup"> Pagekite Setup</a>
+                <input type="text" id="pagekiteID">
+            </li>
+            <li>    
+                <input type="checkbox" id="COTURN" name="COTURN">
+                    <label for="COTURN">use CoTURN</label>
+            </li>
+            <h4>Video</h4>
+            <li>
+                <select id="video-resolution" class="dropdown">
+                    <option value="320x240">320x240</option>
+                    <option value="640x480">640x480</option>
+                    <option value="1280x720" selected>1280x720</option>
+                    <option value="1920x1080" disabled>1920x1080</option>
+                </select>
+            <li>
+                <select id="video-fps" class="dropdown">
+                    <option value="15">15 FPS</option>
+                    <option value="30" selected>30 FPS</option>
+                    <option value="60" disabled>60 FPS </option>
+                </select>
+            </li>
+            <li>
+                <select id="video-source" class="dropdown">
+                    <option value="IR Camera">IR Camera</option>
+                    <option value="RGB Camera" selected>RGB Camera</option>
+                    <option value="Pi Camera">Pi Camera</option>
+                </select>
+            </li>
+            
+            <li>
+                <h4>Controller status:</h4>
+                <span id="ControllerConnection" class="fa-solid fa-gamepad fa-xl"></span>
+            </li>
+              
+        <!-- <button id="start"  onclick="start(), popupCloser()">&raquo;</button> -->
+            <button id="restartButton" class = "tooltip" onclick="restart_rover()">&#8634; 
+                <span class="tooltiptext">Restart</span>
+            </button>
+                
+        </ul>
+        
+        <a href="#" onclick="start(), popupCloser()">Connect</a>
+    </div>
+
+    <div id="IncendiPopup" class="popup">
+        <ul>
+            <h4>Connection</h4>
+            <li>
+                <a id="incendiumSetup"> Incendium Setup</a>
+                <input type="text" id="IncendiLink">
+            </li>
+            <li>    
+                <input type="checkbox" id="IncendiumURL" name="IncendiumURL">
+                    <label for="COTURN">use CoTURN</label>
+            </li>
+            <li>
+                <button id="to-incendium">Go</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class = "main-body">
+        <ul class="system-overlay system-overlay-top">
+            <li>
+                <ul>
+                    <li><button id="camera-switch" onclick="changeCam()" >Toggle camera</button></li>
+                    <li><button id="hide-cam" onclick="showCam()" style="display: none">Show second camera</button></li>
+                    <li><button id="show-cam" onclick="hideCam()">Hide second camera</button></li>
+                    <!-- <li><span id="audio_status" class="fa-solid fa-volume-xmark fa-lg" style="color:grey;"></span></li> -->
+                </ul>
+            </li>
+
+            <li>
+                <ul>
+                    <li style="color:grey;">
+                        5G:
+                        <span id="5G" class="fa-sharp fa-solid fa-signal" ></span>
+                    </li>
+                    <li style="color:grey;">
+                        BT: <span ></span>
+                        <span id="BT" class="fa-brands fa-bluetooth-b fa-lg" onclick="popupOpener()"></span>
+                    </li>
+                    <li>    
+                        Ping: 
+                        <span id="Ping">____</span>
+                        <span> ms </span>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <ul>
+                    <li style="color:grey;">
+                        Temp:
+                        <span id="temp" >__</span>
+                        <span>&#xb0;</span>
+                    </li>
+                    <li style="color:grey;">
+                        CO2:
+                        <span id="CO2" >__</span>
+                        <span>ppm</span>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <ul id="system">
+                    <li>
+                        Battery: <span id="battery"></span>
+                        <span id="charging" class="fa fa-lg ">&#xf244;</span>
+                    </li>
+                    <li>
+                        Voltage:
+                        <span id="voltage" >__</span>
+                        <span>V</span>
+                    </li>
+                </ul>
+            </li>
+
+            <li>  
+                <ul>
+                    <li>
+                        <div class="tooltip" style="color:grey;">
+                            <span id="incendiStream" class="fa-solid fa-house-signal fa-xl setup" onclick="popupOpener()"></span>
+                            <span class="tooltiptext">Incendium</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tooltip">
+                            <span id="setupSymbol" class="fa-solid fa-gear fa-xl setup" onclick="popupOpener()"></span>
+                            <span class="tooltiptext">Setup</span>
+                        </div>
+                    </li>
+                </ul>  
+            </li>
+        </ul>
+
+        <div class="media-container">
+                <audio id="audio" autoplay="true"></audio>
+                <video id="video1" autoplay="true" playsinline="true"></video>
+                <audio id="audio2" autoplay="true"></audio>
+                <video id="video2" autoplay="true" playsinline="true" onclick="changeCam()"></video>
+                <!-- <video id="video3" autoplay="true" playsinline="true"></video> -->
+        </div>
+
+
+        <ul class="system-overlay-bot">
+            <ul id="controll" class="system-overlay">    
+                <li>
+                    Speed: <span id="speed-controll"></span>
+                    <span id="speed-factor-value">50</span>
+                    <input type="range" min="10" max="100" value="55" class="slider" id="speed-factor-slider">
+                 </li>
+                <li>
+                    Steering-Offset: <span id="steering-offset"></span>
+                    <span id="steering-offset-value">0</span>
+                    <input type="range" min="-15" max="15" value="0" class="slider" id="steering-offset-slider">  
+                </li>
+            </ul>
+            <ul class="system-overlay">
+                <li>
+                    ICE gathering state: <span id="ice-gathering-state"></span>
+                </li>
+                <li>
+                    ICE connection state: <span id="ice-connection-state"></span>
+                </li>
+                <li>
+                    Signaling state: <span id="signaling-state"></span>
+                </li>
+            </ul>
+            
+
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="main-footer-container">
+            <h2 class="rover-logo rover-logo-color"> FireRover</h2>
+            <h3 class="rover-logo-color"> A project by: </h3>
+            <a href="https://www.linkedin.com/in/peter-knutsen-a26a6413b/" target="blank"> Peter, </a>
+            <a href="https://www.linkedin.com/in/syver-haraldsen-096106258/" target="blank"> Syver,</a>
+            <a href="https://www.linkedin.com/in/trond-f-christiansen-ba0118274/" target="blank"> Trond</a>
+            <a href="https://www.linkedin.com/in/bendik-nygård-24356813a/" target="blank">  & Bendik</a>
+
+            <ul class="nav footer-nav">
+                <li>    
+                    <a href="https://tbrt.no" target="blank">
+                        <img src="Images/TBRT.png" >
+                    </a>
+                </li>
+                <li>
+                    <a href="https://sintef.no" target="blank">
+                        <img src="Images/logoSINTEF.png" >
+                    </a>
+                </li>
+                <a href="https://ntnu.no" target="blank">
+                    <img src="Images/NTNU-logo.png" >
+                </a>
+            </ul>
+        </div>
+    </footer>
+
+    <script type="application/javascript" src="./client.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+      
+        window.addEventListener("load", function(){
+            setTimeout(
+                function open(event){
+                    document.querySelector(".popup").style.display = "block";
+                },
+                2000 
+            )
+        });
+        
+        document.querySelector("#closePopup").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+        });
+
+        function popupOpener() {
+            var popup = document.getElementById("system-popup");
+            document.querySelector(".popup").style.display = "block";
+        };
+
+        function popupCloser() {
+            var popup = document.getElementById("system-popup");
+            document.querySelector(".popup").style.display = "none";
+        }
+
+        document.getElementById('pagekiteID').value = "firerover.pagekite.me";
+
+
+            </script>
+</body>
+</html>
+
+

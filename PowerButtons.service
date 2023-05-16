@@ -1,0 +1,11 @@
+[Unit]
+Description=Startup of powerbuttons
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/TBRT/Bacheloroppgave/Code/shutdown.py
+Restart=always
+User=TBRT
+
+[Install]
+WantedBy=multi-user.target
