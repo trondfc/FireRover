@@ -18,9 +18,20 @@ def start_client():
     print("server starting as http://localhost:8000/")
     test(CORSRequestHandler, HTTPServer, port=8000)
 
+# Account SID and Auth Token from twilio.com neads to be added
+# to get_ice() function. This will allow the server to generate
+# a new set of ICE servers every time the server is started.
+# This is needed because the ICE servers are only valid for 30
+# minutes.
+# Twilios security dont allow uploading of the SID and Auth Token
+# to github, and will immediatly change the SID and Auth Token if 
+# done so.
+# The SID and Auth Token can be found on the twilio dashboard.
+# https://www.twilio.com/console
+
 def get_ice():
-    account_sid = "AC3f41fff3e0e8db7d9f5ff32494b3dd86"
-    auth_token = "5255cc68862bf23bb36e3ae5a20d7495"
+    account_sid = ""
+    auth_token = ""
     client = Client(account_sid, auth_token)
     token = client.tokens.create()
     ice = token.ice_servers
