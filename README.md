@@ -1,5 +1,6 @@
 # FireRover
 GitHub repo for FireRover platformen.
+https://github.com/trondfc/FireRover
 
 Utviklet som en bacheloroppgave hos [NTNU](https://www.ntnu.no/) i sammarbeid med [SINTEF](https://www.sintef.no/) og [TBRT](https://tbrt.no/)
 
