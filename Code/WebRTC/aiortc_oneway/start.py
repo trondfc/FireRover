@@ -21,11 +21,9 @@ def start_client():
 # Account SID and Auth Token from twilio.com neads to be added
 # to get_ice() function. This will allow the server to generate
 # a new set of ICE servers every time the server is started.
-# This is needed because the ICE servers are only valid for 30
-# minutes.
 # Twilios security dont allow uploading of the SID and Auth Token
-# to github, and will immediatly change the SID and Auth Token if 
-# done so.
+# to a public github repo, and will immediatly change the SID 
+# and Auth Token if done so.
 # The SID and Auth Token can be found on the twilio dashboard.
 # https://www.twilio.com/console
 

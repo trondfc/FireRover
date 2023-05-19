@@ -247,6 +247,10 @@ async function createPeerConnection() {
         rtcpMuxPolicy: 'negotiate',
     };
     
+
+    // Coturn server is a local server that is used to relay the video stream
+    // This is run on a Raspberry Pi
+    // The ICE sercer configuration is from the coturn setup
     if(COTURN==true) {
         console.log("COTURN");
         config.iceServers = [
