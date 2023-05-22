@@ -58,3 +58,18 @@ Installer Python3 på PCen om den ikke har det
 Kjør `download_packages.bat` for å installere nødvendige python-biblioteker
 
 Kjør `main.bat` for å starte programmet
+
+## Eksterne tjenester
+Koden benytter seg av noen forskjellige eksterne tjenester med innloging som må konfigureres før bruk.
+### Pagekite
+Pagekite er en tunneling tjeneste som brukes for å sende HTTP komandoer til bilen ved oppstart. Denne tjenesten må det lages en bruker til og settes opp i client.js.
+For og lage bruker kan man kjøre pagekite.py koden på raspberry pien med komandoen 
+```
+python3 pagekite.py 5000 <yourName>.pagekite.me
+```
+
+### Twilio
+For ICE servere er det benyttet Twilio. Dette er en teneste med et API kall som returnerer ICE servere og autentikasjon. Mer informasjon om dette ligger i start.py hvor dette brukes.
+
+### Coturn
+Coturn er et alternativ til Twilio som ICE server. Dette er et opensorce program som kjører på en raspberry pi
