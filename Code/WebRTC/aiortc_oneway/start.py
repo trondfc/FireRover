@@ -28,8 +28,8 @@ def start_client():
 # https://www.twilio.com/console
 
 def get_ice():
-    account_sid = ""
-    auth_token = ""
+    account_sid = "AC3f41fff3e0e8db7d9f5ff32494b3dd86"
+    auth_token = "4e8fdb8c434cc0197770fef8fc9c081f"
     client = Client(account_sid, auth_token)
     token = client.tokens.create()
     ice = token.ice_servers

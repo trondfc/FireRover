@@ -429,7 +429,7 @@ async function restart_rover() {
 async function start() {
     if(controller_connected == false){
         alert("Controller not connected");
-        return;
+        //return;
     }
     console.log("start");
     console.log("Creating peer connection");

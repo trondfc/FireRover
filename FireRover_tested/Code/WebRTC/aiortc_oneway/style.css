@@ -1,0 +1,437 @@
+
+/* Global Styles */
+
+  :root {
+    --primary-color: #ffffff;
+    --secondary-color: #5d5d5a;
+    --accent-color: #a91c1c;;
+    --background-color: #121212;
+    --text-color: #e8e8e8;
+    --button-color: #ffffff;
+  }
+
+
+/* General styles */
+
+* {
+  box-sizing: border-box;
+  font-family: Lato, Copperplate, Arial, sans-serif;
+  /* font-family: Lato, Arial, sans-serif; */
+}
+
+
+html, body {
+  background-color: var(--primary-color);
+  background-size: cover;
+  margin: 0px;
+  padding-bottom: 30;
+  color: var(--text-color)
+  }
+
+/* Header and Main Navigation */
+
+.rover-logo {
+  font-size: 46px;
+}
+
+.rover-logo-color{
+  color: var(--secondary-color);
+}
+
+.sar-logo{
+  font-size: 36px;
+  color: var(--accent-color);
+}
+
+.main-header {
+    padding: 0px;
+    text-align: center;
+}
+
+.nav ul {
+  margin: 0;
+}
+
+.nav li{
+  display: inline;
+}
+.nav a{
+  display: inline-block;
+  padding: .5em;
+}
+
+.nav a:hover{
+  opacity: 30%;
+  cursor: pointer;
+}
+
+
+/* Main Content */
+
+
+.main-body  {
+  top: 18%;
+  left: 2%;
+  z-index: 1;
+  position: relative;
+  left:0;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+opacity: 1;
+-webkit-transition: opacity 500ms ease, -webkit-filter 500ms ease;
+transition: opacity 500ms ease, -webkit-filter 500ms ease;
+transition: filter 500ms ease, opacity 500ms ease;
+transition: filter 500ms ease, opacity 500ms ease, -webkit-filter 500ms ease;
+
+}
+
+.main-body ul{
+  list-style-type: none; 
+}
+
+.main-body li{
+  float: left;
+}
+
+.system-header{
+  background-color: var(--background-color);
+}
+
+.media-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    max-width:min-content;
+    background-color: var(--background-color);
+    opacity: 80%;
+    max-width: 164rem;
+}
+
+.medida-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.media-container li {
+  display: inline-block;
+}
+
+.system-overlay  {
+  background: rgba(93, 92, 92, 0.35);
+  display: flex;
+  justify-content: space-around;
+  z-index: 2;
+  padding-left: 0px;
+}
+
+.system-overlay ul{
+  flex-grow: 1;
+  list-style-type: none; 
+  background: rgba(93, 92, 92, 0.5);
+}
+
+.system-overlay li{
+  float: left;
+  padding: 4px;
+  margin: 0px 3px;
+}
+
+
+
+.system-overlay-top {
+  position: absolute  ;
+  margin: 4px 0px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.system-overlay-bot {
+  padding-left: 0px;
+  margin: 4px 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Footer content */
+
+footer{
+  bottom: 0;
+}
+
+.main-footer {
+  color:#ffffff;
+  padding: .25em .25em;
+}
+
+.main-footer-container{
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+}
+
+.main-footer-container ul {
+  flex-grow: 1;
+  text-align: end;
+}
+
+.main-footer-container a {
+  text-decoration:none;
+  color: var(--secondary-color)
+}
+.main-footer-container a:hover{
+  opacity: 30%;
+}
+
+.footer-nav li {
+  padding: 0 .5em;
+}
+
+.footer-nav img {
+  height: 35px;
+  width: auto;
+}
+
+.footer-nav a {
+  display: inline-block;
+  padding: .5em;
+}
+
+.footer-nav a:hover {
+  opacity: 30%;
+}
+
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+
+  }
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    margin: 0 0 1rem;
+  }
+
+
+/* User Action Inputs  */
+
+.dropdown {
+  width: 100%;
+  border-radius: 4px;
+  min-width: max-content;
+}
+
+.slider {
+  max-width: 90%;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;   
+  background: var(--secondary-color);
+
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  background: var(--text-color);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+
+slider:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+button {
+    /* position: relative; */
+    color: var(--secondary-color);
+    background-color: var(--button-color);
+    border-radius: 4px;
+}
+
+button:hover {
+    opacity: 0.5;
+    cursor: pointer; 
+  }
+
+select {
+  background-color: var(--button-color);
+  min-width: max-content;
+  justify-content: center;
+}
+
+select:hover {
+  opacity: 0.5;
+  cursor: pointer;
+    }  
+
+input:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+
+/* Div */
+
+.popup {
+  background-color: #ffffff;
+  color: #5d5d5a;
+  width: 360px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+  text-align: center;
+  z-index: 10;
+}
+
+.popup p{
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+  line-height: 25px;
+}
+
+.popup ul{
+  list-style-type: none; 
+  padding: 10%;
+  
+}
+.popup li{
+  justify-content: center;
+  padding: 5px;
+  margin: 4px;
+}
+
+.popup button {
+  position: relative;
+  background-color: transparent;
+  font-size: 30px;
+  color: var(--text-color);
+  background: var(--accent-color);
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#closePopup{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 8px;
+}
+#restartButton{
+  position: absolute;
+  font-size:25px;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+}
+
+.popup--active .content {
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+  opacity: 1;
+}
+
+
+
+#BT:hover{
+  opacity: 50%;
+  cursor: pointer;
+}
+.fa-bluetooth-b{
+  color: rgb(84, 159, 245);
+}
+
+pre {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#video1 {
+    width: auto;
+    height: auto;
+}
+
+#video2{
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  right: 0;
+  top: 10%;
+}
+
+#video3{
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  right: 0;
+  bottom: 30%;
+}
+
+.setup:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+#ControllerConnection {
+  color: red;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 16px;
+  width: 120px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
